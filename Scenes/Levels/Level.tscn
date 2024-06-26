@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpufc41rb05fa"]
+
+[ext_resource type="PackedScene" uid="uid://bppvrlp757lrn" path="res://Scenes/Creatures/Bunny.tscn" id="2_bchre"]
+[ext_resource type="PackedScene" uid="uid://cm4fqhjqx7i0v" path="res://MainScene.tscn" id="2_svepx"]
+
+[node name="Level" type="Node"]
+
+[node name="Node2D" parent="." instance=ExtResource("2_svepx")]
+
+[node name="Bunny" parent="." instance=ExtResource("2_bchre")]
+y_sort_enabled = true
