@@ -24,6 +24,11 @@ BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_1="Characters"
+2d_physics/layer_2="Terrain"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
