@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bppvrlp757lrn"]
+
+[ext_resource type="PackedScene" uid="uid://bysvm0awynl3s" path="res://Scenes/Components/DragDrop.tscn" id="1_xafb5"]
+
+[node name="Bunny" type="CharacterBody2D"]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_xafb5")]
+scale = Vector2(0.125, 0.125)

@@ -38,6 +38,7 @@ tile_data = PackedInt32Array(0, 327681, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5plcg"]
 texture = ExtResource("1_ly624")
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5630,6 +5631,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddl0w"]
 texture = ExtResource("2_6e0yl")
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -7583,6 +7585,7 @@ agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gr0ar"]
 texture = ExtResource("3_glm8o")
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0

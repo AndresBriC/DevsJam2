@@ -13,3 +13,14 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Mac-specific ignores
+.godot/
+.import/
+export.cfg
+data_*/
+dist/
+*.vs
+*.tmp
+*blend1
+*.DS_Store
