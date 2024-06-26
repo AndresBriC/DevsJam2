@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dxkxp2r8ptv1o" path="res://Sprites/Tilesets/Rural Village Buildings.png" id="1_ly624"]
 [ext_resource type="Texture2D" uid="uid://cqlomux1pqh3f" path="res://Sprites/Tilesets/Rural Village Nature Objects.png" id="2_6e0yl"]
 [ext_resource type="Texture2D" uid="uid://dsugqduwxom0y" path="res://Sprites/Tilesets/Rural Village Terrain.png" id="3_glm8o"]
-[ext_resource type="PackedScene" uid="uid://c5uq4ohs80e4r" path="res://rat.tscn" id="4_qdb1s"]
+[ext_resource type="PackedScene" uid="uid://c5uq4ohs80e4r" path="res://Scenes/Creatures/rat.tscn" id="4_qdb1s"]
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_vhefh"]
 [ext_resource type="Texture2D" uid="uid://bp0em07wulqxx" path="res://icon.svg" id="5_8hwhi"]
 
