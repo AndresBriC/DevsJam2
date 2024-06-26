@@ -22,7 +22,7 @@ func acquire_target():
 		var new_target = available_herbivores[0] # Get the first
 		target = new_target
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_instance_valid(target):
 		navigation_agent_2d.target_position = target.global_position
 	else:

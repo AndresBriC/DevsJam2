@@ -1,11 +1,11 @@
 [gd_scene load_steps=35 format=3 uid="uid://cm4fqhjqx7i0v"]
 
-[ext_resource type="Texture2D" uid="uid://dxkxp2r8ptv1o" path="res://Sprites/Tilesets/Rural Village Buildings.png" id="1_ly624"]
-[ext_resource type="Texture2D" uid="uid://cqlomux1pqh3f" path="res://Sprites/Tilesets/Rural Village Nature Objects.png" id="2_6e0yl"]
-[ext_resource type="Texture2D" uid="uid://dsugqduwxom0y" path="res://Sprites/Tilesets/Rural Village Terrain.png" id="3_glm8o"]
-[ext_resource type="PackedScene" uid="uid://c5uq4ohs80e4r" path="res://Scenes/Creatures/rat.tscn" id="4_qdb1s"]
-[ext_resource type="Script" path="res://Scripts/TileMap.gd" id="4_vhefh"]
-[ext_resource type="Texture2D" uid="uid://bp0em07wulqxx" path="res://icon.svg" id="5_8hwhi"]
+[ext_resource type="Texture2D" uid="uid://dxkxp2r8ptv1o" path="res://Sprites/Tilesets/Rural Village Buildings.png" id="1_occmn"]
+[ext_resource type="Texture2D" uid="uid://cqlomux1pqh3f" path="res://Sprites/Tilesets/Rural Village Nature Objects.png" id="2_tlldc"]
+[ext_resource type="Texture2D" uid="uid://dsugqduwxom0y" path="res://Sprites/Tilesets/Rural Village Terrain.png" id="3_i1pat"]
+[ext_resource type="Script" path="res://Scripts/Tilemaps/TileMap.gd" id="4_b617m"]
+[ext_resource type="PackedScene" uid="uid://c5uq4ohs80e4r" path="res://Scenes/Creatures/rat.tscn" id="5_u6082"]
+[ext_resource type="Texture2D" uid="uid://bp0em07wulqxx" path="res://icon.svg" id="6_qmq52"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ifcex"]
 tile_data = PackedInt32Array(0, 1, 8, 65536, 1, 9, 131072, 1, 10, 1, 65537, 8, 65537, 65537, 9, 131073, 65537, 10, 2, 131073, 8, 65538, 131073, 9, 131074, 131073, 10)
@@ -38,7 +38,7 @@ tile_data = PackedInt32Array(0, 393217, 0, 65536, 393217, 1, 131072, 393217, 2, 
 tile_data = PackedInt32Array(0, 327681, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5plcg"]
-texture = ExtResource("1_ly624")
+texture = ExtResource("1_occmn")
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -5631,7 +5631,7 @@ use_texture_padding = false
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddl0w"]
-texture = ExtResource("2_6e0yl")
+texture = ExtResource("2_tlldc")
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -7585,7 +7585,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gr0ar"]
-texture = ExtResource("3_glm8o")
+texture = ExtResource("3_i1pat")
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -9553,15 +9553,15 @@ layer_1/name = "Plants"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(327684, 1, 0, 393220, 1, 1, 458756, 1, 2, 327685, 65537, 0, 393221, 65537, 1, 458757, 65537, 2, 327686, 131073, 0, 393222, 131073, 1, 458758, 131073, 2, 65552, 1, 0, 131088, 1, 1, 196624, 1, 2, 65553, 65537, 0, 131089, 65537, 1, 196625, 65537, 2, 65554, 131073, 0, 131090, 131073, 1, 196626, 131073, 2, 983044, 1, 0, 1048580, 1, 1, 1114116, 1, 2, 983045, 65537, 0, 1048581, 65537, 1, 1114117, 65537, 2, 983046, 131073, 0, 1048582, 131073, 1, 1114118, 131073, 2, 655373, 1, 0, 720909, 1, 1, 786445, 1, 2, 655374, 65537, 0, 720910, 65537, 1, 786446, 65537, 2, 655375, 131073, 0, 720911, 131073, 1, 786447, 131073, 2, 917521, 1, 0, 983057, 1, 1, 1048593, 1, 2, 917522, 65537, 0, 983058, 65537, 1, 1048594, 65537, 2, 917523, 131073, 0, 983059, 131073, 1, 1048595, 131073, 2, 458779, 1, 0, 524315, 1, 1, 589851, 1, 2, 458780, 65537, 0, 524316, 65537, 1, 589852, 65537, 2, 458781, 131073, 0, 524317, 131073, 1, 589853, 131073, 2, 917538, 196609, 0, 983074, 196609, 1, 1048610, 196609, 2, 917539, 262145, 0, 983075, 262145, 1, 1048611, 262145, 2, 65547, 196609, 0, 131083, 196609, 1, 196619, 196609, 2, 65548, 262145, 0, 131084, 262145, 1, 196620, 262145, 2, 720903, 196609, 0, 786439, 196609, 1, 851975, 196609, 2, 720904, 262145, 0, 786440, 262145, 1, 851976, 262145, 2, 131108, 196609, 0, 196644, 196609, 1, 262180, 196609, 2, 131109, 262145, 0, 196645, 262145, 1, 262181, 262145, 2, 524328, 196609, 0, 589864, 196609, 1, 655400, 196609, 2, 524329, 262145, 0, 589865, 262145, 1, 655401, 262145, 2)
-script = ExtResource("4_vhefh")
+script = ExtResource("4_b617m")
 
-[node name="Rat" parent="." instance=ExtResource("4_qdb1s")]
+[node name="Rat" parent="." instance=ExtResource("5_u6082")]
 position = Vector2(456, 326)
 
-[node name="Rat2" parent="." instance=ExtResource("4_qdb1s")]
+[node name="Rat2" parent="." instance=ExtResource("5_u6082")]
 position = Vector2(180, 268)
 
-[node name="Rat3" parent="." instance=ExtResource("4_qdb1s")]
+[node name="Rat3" parent="." instance=ExtResource("5_u6082")]
 position = Vector2(34, 279)
 
 [node name="Herb" type="Area2D" parent="." groups=["herbivore"]]
@@ -9569,7 +9569,7 @@ position = Vector2(178, 132)
 
 [node name="Icon" type="Sprite2D" parent="Herb"]
 scale = Vector2(0.179688, 0.1875)
-texture = ExtResource("5_8hwhi")
+texture = ExtResource("6_qmq52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Herb"]
 shape = SubResource("RectangleShape2D_403sn")
