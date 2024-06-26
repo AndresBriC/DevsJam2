@@ -4,7 +4,7 @@ var movement_speed = 50.0
 @export var target: Node2D = null
 
 @onready var navigation_agent_2d = $NavigationAgent2D
-@onready var rat_sprite = $"../Rat/RatSprite"
+@onready var sprite_2d = $Sprite2D
 
 func _ready():
 	call_deferred("seeker_setup")
@@ -33,8 +33,17 @@ func _physics_process(delta):
 	
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
-	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	var new_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	
+	if navigation_agent_2d.avoidance_enabled:
+		navigation_agent_2d.set_velocity(new_velocity)
+	else:
+		_on_navigation_agent_2d_velocity_computed(new_velocity)
 	
 	move_and_slide()
 	# Flip the sprite based on the direction its moving
-	rat_sprite.flip_h = false if velocity.x > 0 else true
+	sprite_2d.flip_h = false if velocity.x > 0 else true
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
