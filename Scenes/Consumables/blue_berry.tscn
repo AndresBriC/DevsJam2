@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbeoe0eenphoi"]
+
+[ext_resource type="Script" path="res://Scripts/Draggable.gd" id="1_aa8ja"]
+[ext_resource type="Texture2D" uid="uid://pcu7amhysbue" path="res://Sprites/Consumables/red_berry_1.png" id="1_cuqqh"]
+[ext_resource type="PackedScene" uid="uid://bysvm0awynl3s" path="res://Scenes/Components/dragdrop_component.tscn" id="2_qyxhk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8r6pk"]
+radius = 8.0
+
+[node name="Herb" type="Area2D" groups=["herbivore"]]
+script = ExtResource("1_aa8ja")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_cuqqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_8r6pk")
+
+[node name="DragDropComponent" parent="." instance=ExtResource("2_qyxhk")]
+
+[connection signal="drag_stopped" from="DragDropComponent" to="." method="_on_drag_drop_component_drag_stopped"]
+[connection signal="dragging" from="DragDropComponent" to="." method="_on_drag_drop_component_dragging"]

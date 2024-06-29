@@ -6,6 +6,7 @@
 [node name="Level" type="Node"]
 
 [node name="Node2D" parent="." instance=ExtResource("2_svepx")]
+position = Vector2(-8, 16)
 
 [node name="Bunny" parent="." instance=ExtResource("2_bchre")]
 y_sort_enabled = true

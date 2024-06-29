@@ -1,19 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5uq4ohs80e4r"]
+[gd_scene load_steps=4 format=3 uid="uid://dgmcrdfpnfnaw"]
 
 [ext_resource type="Script" path="res://Scripts/Roam.gd" id="1_xmvea"]
 [ext_resource type="Texture2D" uid="uid://c3q4bdjdr2qgj" path="res://Sprites/48x48Rat_Hit.png" id="2_4yofl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ab50m"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rirfs"]
+radius = 8.0
 
 [node name="Rat" type="CharacterBody2D"]
-position = Vector2(0, 301)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -16)
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_xmvea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 13)
-shape = SubResource("CircleShape2D_ab50m")
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_rirfs")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
@@ -21,6 +26,10 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("2_4yofl")
+region_enabled = true
+region_rect = Rect2(0, 16, 32, 32)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

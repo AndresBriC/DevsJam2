@@ -1,0 +1,202 @@
+[gd_scene load_steps=20 format=3 uid="uid://boa3f0tmfgh7s"]
+
+[ext_resource type="Script" path="res://Scripts/Draggable.gd" id="1_04sci"]
+[ext_resource type="Script" path="res://Scripts/wolf.gd" id="1_swd8o"]
+[ext_resource type="Texture2D" uid="uid://fmf5me5tf12b" path="res://Sprites/Creatures/wolf_anim.png" id="1_xei80"]
+[ext_resource type="PackedScene" uid="uid://bysvm0awynl3s" path="res://Scenes/Components/dragdrop_component.tscn" id="2_a8p4b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pio2"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_uv5pb"]
+length = 0.249
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_3i5km"]
+length = 0.83
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581, 0.664, 0.747),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ixo02"]
+length = 0.664
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rk3ok"]
+_data = {
+"Anticipation": SubResource("Animation_uv5pb"),
+"Idle": SubResource("Animation_3i5km"),
+"Walk": SubResource("Animation_ixo02")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8xfi"]
+animation = &"Anticipation"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pw5fy"]
+animation = &"Anticipation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gq2ig"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ckk4l"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nb1kh"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o1b5r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6vyn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_meng0"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fj8be"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xn4ue"]
+states/Anticipation/node = SubResource("AnimationNodeAnimation_pw5fy")
+states/Anticipation/position = Vector2(579.525, 100)
+"states/Anticipation 2/node" = SubResource("AnimationNodeAnimation_h8xfi")
+"states/Anticipation 2/position" = Vector2(450.54, 190.16)
+states/End/position = Vector2(837, 100)
+states/Idle/node = SubResource("AnimationNodeAnimation_gq2ig")
+states/Idle/position = Vector2(450.54, 100)
+states/Start/position = Vector2(294, 100)
+states/Walk/node = SubResource("AnimationNodeAnimation_ckk4l")
+states/Walk/position = Vector2(579.525, 190.16)
+transitions = ["Idle", "Anticipation", SubResource("AnimationNodeStateMachineTransition_nb1kh"), "Anticipation", "Walk", SubResource("AnimationNodeStateMachineTransition_o1b5r"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_w6vyn"), "Walk", "Anticipation 2", SubResource("AnimationNodeStateMachineTransition_meng0"), "Anticipation 2", "Idle", SubResource("AnimationNodeStateMachineTransition_fj8be")]
+graph_offset = Vector2(-255.693, -1.43)
+
+[node name="Draggable" type="Area2D"]
+script = ExtResource("1_04sci")
+
+[node name="DragDropComponent" parent="." instance=ExtResource("2_a8p4b")]
+
+[node name="Wolf" type="CharacterBody2D" parent="."]
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_swd8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wolf"]
+shape = SubResource("CircleShape2D_6pio2")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Wolf"]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 0.01
+debug_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Wolf"]
+texture_filter = 3
+texture = ExtResource("1_xei80")
+hframes = 5
+vframes = 4
+frame = 5
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Sprites/Creatures",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Sprites/Creatures/wolf_anim.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "24d51e47fccc8e4b3884695f019ccdd2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wolf"]
+libraries = {
+"": SubResource("AnimationLibrary_rk3ok")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Wolf"]
+tree_root = SubResource("AnimationNodeStateMachine_xn4ue")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="drag_stopped" from="DragDropComponent" to="." method="_on_drag_drop_component_drag_stopped"]
+[connection signal="dragging" from="DragDropComponent" to="." method="_on_drag_drop_component_dragging"]
+[connection signal="input_event" from="Wolf" to="Wolf" method="_on_input_event"]
+[connection signal="velocity_computed" from="Wolf/NavigationAgent2D" to="Wolf" method="_on_navigation_agent_2d_velocity_computed"]
