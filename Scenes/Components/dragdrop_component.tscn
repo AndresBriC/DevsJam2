@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bysvm0awynl3s"]
+
+[ext_resource type="Script" path="res://Scripts/DragDrop.gd" id="1_ix171"]
+
+[node name="DragDropComponent" type="Node"]
+script = ExtResource("1_ix171")
