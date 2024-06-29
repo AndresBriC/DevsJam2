@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5uq4ohs80e4r"]
+[gd_scene load_steps=9 format=3 uid="uid://c5uq4ohs80e4r"]
 
 [ext_resource type="Script" path="res://Scripts/Movement/Roam.gd" id="1_xmvea"]
 [ext_resource type="Texture2D" uid="uid://c3q4bdjdr2qgj" path="res://Sprites/48x48Rat_Hit.png" id="2_4yofl"]
 [ext_resource type="PackedScene" uid="uid://6h3a064f65dk" path="res://Scenes/Components/health_component.tscn" id="3_ru44e"]
 [ext_resource type="PackedScene" uid="uid://byryti7jgq7fk" path="res://Scenes/Components/hitbox_component.tscn" id="4_na13c"]
 [ext_resource type="Script" path="res://Scripts/Components/HungerComponent.gd" id="5_74fw3"]
+[ext_resource type="Script" path="res://Scripts/Components/MovementComponent.gd" id="6_2x7el"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ab50m"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cc6fx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwm2h"]
+size = Vector2(20, 41)
 
 [node name="Rat" type="CharacterBody2D"]
 position = Vector2(0, 301)
@@ -33,10 +35,13 @@ texture = ExtResource("2_4yofl")
 [node name="HitboxComponent" parent="." instance=ExtResource("4_na13c")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(-6, 13)
-shape = SubResource("CircleShape2D_cc6fx")
+position = Vector2(3, 12.5)
+shape = SubResource("RectangleShape2D_wwm2h")
 
 [node name="HungerComponent" type="Node2D" parent="."]
 script = ExtResource("5_74fw3")
+
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("6_2x7el")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

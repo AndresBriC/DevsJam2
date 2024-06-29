@@ -15,8 +15,22 @@ func seeker_setup():
 		navigation_agent_2d.target_position = target.global_position
 
 func acquire_target():
-	var herbivore_container = get_tree().get_nodes_in_group("herbivore")[0] # This should be changed when adding more herbivores
-	var available_herbivores = herbivore_container.get_children()
+	var herbivore_container = get_tree().get_nodes_in_group("herbivore")
+	
+	if len(herbivore_container) == 0:
+		return
+	
+	var herbivore_container_closest = herbivore_container[0]
+	print(name)
+	var closest_distance = INF
+	for herbivore in herbivore_container:
+		var current_distance = global_position.distance_squared_to(herbivore.get("position"))
+		print("Distance to: " + herbivore.name + " " + str(current_distance))
+		if  current_distance < closest_distance:
+			closest_distance = current_distance
+			herbivore_container_closest = herbivore
+	
+	var available_herbivores = herbivore_container_closest.get_children()
 	
 	if !available_herbivores.is_empty():
 		var new_target = available_herbivores[0] # Get the first
@@ -24,6 +38,7 @@ func acquire_target():
 
 func _physics_process(_delta):
 	if is_instance_valid(target):
+		acquire_target()
 		navigation_agent_2d.target_position = target.global_position
 	else:
 		acquire_target()
@@ -47,3 +62,6 @@ func _physics_process(_delta):
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
+
+func _on_herb_body_entered(body):
+	body
